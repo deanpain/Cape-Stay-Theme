@@ -1,0 +1,285 @@
+/*
+Theme Name: Homey Child
+Theme URI: http://themeforest.net/user/favethemes/
+Author: Favethemes
+Author URI: http://themeforest.net/user/favethemes/
+Description: Homey is a powerful booking platform that lets you run a residential or commercial
+rental business online with no hassle
+Version: 2.0.5
+Tags: right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, post-formats, theme-options, translation-ready
+License: GNU General Public License version 3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: homey
+Template: homey
+*/
+/* Your CSS code goes here
+-------------------------------------- */
+
+
+
+.home .top-banner-wrap {
+  background-color: #fff;
+}
+
+.home .banner-caption {
+  top: 44%;
+}
+
+.home .banner-inner:before {
+  opacity: 0;
+}
+
+.home .banner-title,
+.home .banner-subtitle {
+  color: #333;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mobile-logo img {
+  margin-top: 10px;
+}
+
+.tooltip,
+.tooltip div {
+  background-color: #4cb781 !important;
+  border-radius: 3px;
+}
+
+.wpcf7-checkbox {
+  height: auto !important;
+}
+
+.wpcf7-checkbox span {
+  padding: 5px 0;
+}
+
+.wpcf7-form-control {
+  margin-bottom: 10px !important;
+}
+
+.wpcf7-acceptance {
+  border: none;
+  margin-bottom: 20px;
+}
+
+[disabled].wpcf7-form-control {
+  background-color: #cecece;
+}
+
+.page-id-8199 input.wpcf7-form-control,
+.page-id-8199 textarea.wpcf7-form-control,
+.page-id-8199 .wpcf7-form-control {
+  background-color: #f9f9f9;
+}
+
+/* Join Us */
+.page-id-8199 .wpcf7-submit {
+  background-color: #fb8500 !important;
+}
+
+.page-template-dashboard-listings {
+  font-size: 14px;
+}
+
+.page-template-dashboard-listings address {
+  font-size: 12px;
+}
+
+
+
+
+div[class*="imp-initialized"] div {
+  /*          Max width the svg maps on category pages         */
+  max-width: 100% !important;
+}
+
+#google-map-search {
+  display: none;
+}
+
+#ajaxsearchpro4_1 {
+  margin-bottom: 10px;
+}
+
+div.asl_m .probox .proclose svg {
+  background: #fff !important;
+}
+
+.home .main-content-area,
+.home .page-title {
+  margin: 0;
+}
+
+.sort-wrap .number-of-listings {
+  padding: 0px;
+}
+
+.sort-wrap h2 {
+  margin: 0;
+}
+
+
+/*.nav-area {
+border-bottom: 1px solid #d8dce1;
+}*/
+.navbar-collapse.in {
+  overflow-y: visible !important;
+}
+
+.mobile-nav-wrap li .expand-me,
+.user-nav-wrap li .expand-me,
+/*#swipebox-overlay*/
+  {
+  display: none;
+}
+
+/* remove arrows */
+.header-comp-nav {
+  position: static;
+}
+
+
+/*                  END UBER menu                          */
+
+
+
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+
+.right-sidebar #homey-main-search {
+  font-size: 13px;
+}
+
+.rounded img {
+  border-radius: 4px;
+}
+
+.search-banner .search-destination .btn,
+.search-banner .search-type .btn {
+  line-height: 54px;
+}
+
+/* fix for main search heights  */
+/*  show hide whatsApp buttons */
+/*  Hide element on Desktop */
+@media only screen and (min-width: 500px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+/* Hide element on Tablet/Phone */
+@media only screen and (max-width: 500px) {
+  .hide-on-mobile-tablet {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+.listing-slider img {
+  width: 100%;
+}
+
+#custom-price-section h3.sub-title {
+  margin: 0;
+}
+
+.dashboard-table .table th {
+  padding: 10px 20px;
+}
+
+td[data-label="Additional guests"],
+td[data-label="Weekends"] {
+  display: none;
+}
+
+.dashboard-table .table td {
+  padding: 10px 0 10px 20px;
+}
+
+
+.bootstrap-select.btn-group .dropdown-menu {
+  max-height: 272px;
+}
+
+
+
+/*.text-success {display: none;}*/
+.media-body h5 {
+  margin-bottom: 0;
+}
+
+.flex {display: flex;}
+
+
+
+
+
+
+/*Search Modal  */
+.custom-modal-searchPop {
+  margin: 40% 0;
+}
+
+/*                                 USER DASHBOARD                                  */
+/*.account-login li:nth-child(-n+3) {display: none;}*/
+nav.listing-navi ul.main-menu li:nth-child(7),
+nav.listing-navi ul.main-menu li:nth-child(11) {
+  display: none;
+}
+
+.account-loggedin .user-image {
+  display: none;
+}
+
+.account-loggedin {
+  max-width: 148px;
+}
+
+.account-dropdown ul li:nth-child(n+4):nth-child(-n+8),
+.board-panel-menu li:nth-child(n+5):nth-child(-n+8),
+.board-panel-menu .has-child ul li:nth-child(1),
+/* Verification */
+.board-panel-menu .has-child ul li:nth-child(3) {
+  display: none;
+}
+
+/*  Payment Method  */
+/*.forgot-password-text {display: none;}*/
+.user-dashboard-right .homy-taber-module a {
+  font-size: 13px;
+}
+
+.dashboard-sidebar {
+  width: 300px;
+}
+
+.dashboard-with-sidebar .dashboard-content-area {
+  padding-right: 300px;
+}
+
+/*  MICROTHEMER STYLES  */
+/** General >> Slick active item type **/
+.slick-active .item-type {
+  font-size: 11px !important;
+  text-decoration: none !important;
+  list-style-type: none !important;
+}
+
+/** General >> Elementor widget container list item (#2) **/
+.slick-track li:nth-of-type(2) {
+  color: rgb(248, 180, 43) !important;
+  font-weight: bold !important;
+}

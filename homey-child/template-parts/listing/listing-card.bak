@@ -1,0 +1,125 @@
+<?php
+global $post, $homey_prefix, $homey_local;
+$listing_images = get_post_meta( get_the_ID(), $homey_prefix.'listing_images', false );
+$address        = get_post_meta( get_the_ID(), $homey_prefix.'listing_address', true );
+$bedrooms       = get_post_meta( get_the_ID(), $homey_prefix.'listing_bedrooms', true );
+$guests         = get_post_meta( get_the_ID(), $homey_prefix.'guests', true );
+$beds           = get_post_meta( get_the_ID(), $homey_prefix.'beds', true );
+$baths          = get_post_meta( get_the_ID(), $homey_prefix.'baths', true );
+$night_price    = get_post_meta( get_the_ID(), $homey_prefix.'night_price', true );
+$listing_author = homey_get_author();
+$enable_host = homey_option('enable_host');
+$compare_favorite = homey_option('compare_favorite');
+
+$listing_price = homey_get_price();
+
+$cgl_meta = homey_option('cgl_meta');
+$cgl_beds = homey_option('cgl_beds');
+$cgl_baths = homey_option('cgl_baths');
+$cgl_guests = homey_option('cgl_guests');
+$cgl_types = homey_option('cgl_types');
+$rating = homey_option('rating');
+$total_rating = get_post_meta( get_the_ID(), 'listing_total_rating', true );
+$listing_rating = homey_get_review_stars($total_rating, false, true);
+
+$bedrooms_icon = homey_option('lgc_bedroom_icon');
+$bathroom_icon = homey_option('lgc_bathroom_icon');
+$guests_icon = homey_option('lgc_guests_icon');
+$price_separator = homey_option('currency_separator');
+
+$nightsbridgeBBID = get_post_meta( $post->ID, 'homey_nightsbridgef5ea9b633deaae', true );
+
+
+$state = get_post_meta( get_the_ID(),'state', true );
+
+if(!empty($bedrooms_icon)) {
+    $bedrooms_icon = '<i class="'.esc_attr($bedrooms_icon).'"></i>';
+}
+if(!empty($bathroom_icon)) {
+    $bathroom_icon = '<i class="'.esc_attr($bathroom_icon).'"></i>';
+}
+if(!empty($guests_icon)) {
+    $guests_icon = '<i class="'.esc_attr($guests_icon).'"></i>';
+}
+
+$homey_permalink = homey_listing_permalink();
+?>
+
+<div class="item-wrap infobox_trigger homey-matchHeight">
+    <div class="media property-item">
+
+        <div class="item-media item-media-thumb">
+
+            <?php homey_listing_featured(get_the_ID()); ?>
+
+            <!-- Here we added the Nightsbridge overlay and link -->
+
+                <?php if (!empty($nightsbridgeBBID)) {
+                echo '
+                <div class="NightsBridge"><span title="Check Availability - Book Online with Nightsbridge Secure Booking Engine">BOOK ONLINE</span></div>
+                ';
+                }
+                ?>
+
+            <!-- end NB overlay -->
+
+            <a target=_blank href="<?php echo esc_url($homey_permalink); ?>" >
+                <?php
+                if( has_post_thumbnail( $post->ID ) ) {
+                    the_post_thumbnail( 'homey-listing-thumb',  array('class' => 'img-responsive' ) );
+                }else{
+                    homey_image_placeholder( 'homey-listing-thumb' );
+                }
+                ?>
+            </a>
+            
+            <?php if (!empty($night_price)) {
+                ?>
+                <span class="item-media-price">
+                   <span class="item-price"><?php echo homey_formatted_price($listing_price, true, true); ?><sub><?php echo esc_attr($price_separator); ?><?php echo homey_get_price_label();?></sub></span>
+                </span>
+            <?php
+                    } else { echo '<span class="item-media-price"><sub>REQUEST FOR PRICE</sub></span>';}
+                ?>
+
+
+            <div class="title-head">
+                <a href="<?php echo esc_url($homey_permalink); ?>" target=_blank>
+
+                    
+
+                        <h2 class="title"><?php the_title(); ?></h2>
+
+                        <li class="item-type"><?php echo homey_taxonomy_simple('listing_type'); ?></li>
+
+                        <li class="item-type item-location">
+                        <?php echo homey_taxonomy_simple('listing_city'); ?>
+                        
+                        <?php
+                        $post_id = get_the_ID(); // Get the ID of the current post
+                        $taxonomy = $homey_prefix . 'city'; // Replace $homey_prefix with your prefix
+                        
+                        // Get the terms for the specified taxonomy and post
+                        $terms = get_the_terms($post_id, $taxonomy);
+                        
+                        // Check if terms exist
+                        if ($terms && !is_wp_error($terms)) {
+                            foreach ($terms as $term) {
+                                // Get the slug of the term
+                                $term_slug = $term->slug;
+                                
+                                // Output the slug
+                                echo $term_slug;
+                            }
+                        }
+                        ?>
+                    </li>
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div><!-- .item-wrap -->
